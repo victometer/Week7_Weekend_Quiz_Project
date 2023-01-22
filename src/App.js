@@ -36,6 +36,8 @@ function App() {
   // }
 
   // Not really sure how the conversion from above makes the questions not take in double answers
+
+  // answeredQuestions is an array that keeps track of the questions that have been answered correctly. In the handleAnswer function, I check if the current question is included in the answeredQuestions array before updating the score. This way, every time the user clicks on an answer, the handleAnswer function will check if that answer is already in the answeredQuestions array. If it is, the score will not be updated and the user will not be able to get points for the same question multiple times.
   
   const handleAnswer = (answer) => {
     const currentQuestion = questions.find(question => question.correct_answer === answer);
