@@ -28,12 +28,23 @@ function App() {
 
   //also not sure if this has to be here, would it be ok to have it in QuestionItem?
 
+  // const handleAnswer = (answer) => {
+  //   const currentQuestion = questions.find(question => question.correct_answer === answer);
+  //   if(currentQuestion){
+  //     setScore(score + 1)
+  //   }
+  // }
+
+  // Not really sure how the conversion from above makes the questions not take in double answers
+  
   const handleAnswer = (answer) => {
     const currentQuestion = questions.find(question => question.correct_answer === answer);
-    if(currentQuestion){
-      setScore(score + 1)
+    if (currentQuestion && !answeredQuestions.includes(currentQuestion.question)) {
+        setScore(score + 1);
+        setAnsweredQuestions([...answeredQuestions, currentQuestion.question]);
     }
-  }
+}
+
   //Not really understanding this one
   const handleClick = () => {
     setIsScoreDisplayed(!isScoreDisplayed)
